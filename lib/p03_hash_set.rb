@@ -7,6 +7,12 @@ class HashSet
   end
 
   def insert(key)
+    hashed_key = key.hash
+    unless self[hashed_key].include?(hashed_key)
+      resize! if count > num_buckets - 2
+      self[hashed_key] = hashed_key
+      @count += 1
+    end
   end
 
   def include?(key)
