@@ -117,5 +117,14 @@ class ResizingIntSet
   end
 
   def resize!
+    elements = []
+    @store.each do |sub_arr|
+      elements += sub_arr
+    end
+    # New Size: 2 * num_buckets
+    initialize(2 * num_buckets)
+    elements.each do |num|
+      insert(num)
+    end
   end
 end
