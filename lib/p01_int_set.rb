@@ -48,11 +48,16 @@ class IntSet
   end
 
   private
-
+  attr_writer :store
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
     ind = num % num_buckets
     store[ind]
+  end
+
+  def []= (num, val)
+    ind = num % num_buckets
+    store[ind] << val
   end
 
   def num_buckets
