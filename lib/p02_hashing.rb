@@ -17,6 +17,18 @@ end
 
 class String
   def hash
+    int_arr = self.to_int_arr
+    int_arr.hash
+  end
+  
+  def to_int_arr
+    arr = self.chars
+    int_arr = []
+    arr.each do |ch|
+      ascci = ch.ord
+      int_arr << ascci
+    end
+    int_arr
   end
 end
 
