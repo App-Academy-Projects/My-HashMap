@@ -32,7 +32,9 @@ end
 
 
 class IntSet
+  attr_reader :store, :num_buckets
   def initialize(num_buckets = 20)
+    @num_buckets = num_buckets
     @store = Array.new(num_buckets) { Array.new }
   end
 
@@ -49,6 +51,8 @@ class IntSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    ind = num % num_buckets
+    store[ind]
   end
 
   def num_buckets
