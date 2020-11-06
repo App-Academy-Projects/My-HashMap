@@ -43,6 +43,9 @@ class IntSet
   end
 
   def remove(num)
+    included_in = self[num]
+    ind = included_in.index(num)
+    self[num].delete_at(ind)
   end
 
   def include?(num)
