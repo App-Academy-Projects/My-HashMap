@@ -6,8 +6,10 @@ class Array
   def hash
     return 0.hash if self.empty?
     cur_hash = self[0].hash
-    self.each_with_index do |el, i|
-      cur_hash = el.hash ^ self[i-1].hash if i > 0
+    if self.length > 1
+      self.each do |el|
+        cur_hash ^= el.hash
+      end
     end
     cur_hash
   end
