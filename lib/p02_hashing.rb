@@ -4,6 +4,12 @@ end
 
 class Array
   def hash
+    return 0.hash if self.empty?
+    cur_hash = self[0].hash
+    self.each_with_index do |el, i|
+      cur_hash = el.hash ^ self[i-1].hash if i > 0
+    end
+    cur_hash
   end
 end
 
