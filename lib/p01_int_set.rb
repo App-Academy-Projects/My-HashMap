@@ -39,6 +39,7 @@ class IntSet
   end
 
   def insert(num)
+    self[num] = num
   end
 
   def remove(num)
