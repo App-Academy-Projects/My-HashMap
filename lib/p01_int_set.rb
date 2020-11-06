@@ -20,9 +20,13 @@ class MaxIntSet
   private
 
   def is_valid?(num)
+    num.is_a?(Integer)
   end
 
   def validate!(num)
+    raise "#{num} Is not a valid integer" unless is_valid?(num)
+    raise "Out of bounds" unless num.between?(0, @max_len-1)
+    true
   end
 end
 
