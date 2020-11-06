@@ -79,6 +79,10 @@ class ResizingIntSet
   end
 
   def insert(num)
+    unless self[num].include?(num)
+      self[num] = num
+      @count += 1
+    end
   end
 
   def remove(num)
@@ -91,6 +95,13 @@ class ResizingIntSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    ind = num % num_buckets
+    @store[ind]
+  end
+
+  def []= (num, val)
+    ind = num % num_buckets
+    @store[ind] << val
   end
 
   def num_buckets
