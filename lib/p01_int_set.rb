@@ -10,6 +10,7 @@ class MaxIntSet
   end
 
   def include?(num)
+    @store.include?(num)
   end
 
   private
