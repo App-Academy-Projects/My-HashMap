@@ -45,6 +45,7 @@ class IntSet
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
