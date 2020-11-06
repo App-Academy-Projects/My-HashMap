@@ -4,6 +4,8 @@ class MaxIntSet
   end
 
   def insert(num)
+    raise "Can't add #{num}" unless is_valid?(num)
+    @store << num
   end
 
   def remove(num)
