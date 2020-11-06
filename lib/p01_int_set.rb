@@ -10,6 +10,7 @@ class MaxIntSet
   end
 
   def remove(num)
+    @store[num] = false if validate!(num)
   end
 
   def include?(num)
