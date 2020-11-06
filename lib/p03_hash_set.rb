@@ -48,5 +48,14 @@ class HashSet
   end
 
   def resize!
+    elements = []
+    @store.each do |sub_arr|
+      elements += sub_arr
+    end
+    # New Size: 2 * num_buckets
+    initialize(2 * num_buckets)
+    elements.each do |keys|
+      insert(keys)
+    end
   end
 end
