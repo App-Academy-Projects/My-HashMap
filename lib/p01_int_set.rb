@@ -86,6 +86,12 @@ class ResizingIntSet
   end
 
   def remove(num)
+    if self[num].include?(num)
+      included_in = self[num]
+      ind = included_in.index(num)
+      self[num].delete_at(ind)
+      @count -= 1
+    end
   end
 
   def include?(num)
