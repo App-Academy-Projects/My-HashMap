@@ -16,6 +16,8 @@ class HashSet
   end
 
   def include?(key)
+    hashed_key = key.hash
+    self[hashed_key].include?(hashed_key)
   end
 
   def remove(key)
