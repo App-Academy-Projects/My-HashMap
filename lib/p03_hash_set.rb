@@ -21,6 +21,13 @@ class HashSet
   end
 
   def remove(key)
+    hashed_key = key.hash
+    if self[hashed_key].include?(hashed_key)
+      included_in = self[hashed_key]
+      ind = included_in.index(hashed_key)
+      self[hashed_key].delete_at(ind)
+      @count -= 1
+    end
   end
 
   private
