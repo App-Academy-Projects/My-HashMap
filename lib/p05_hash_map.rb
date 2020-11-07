@@ -34,6 +34,11 @@ class HashMap
   end
 
   def each
+    @store.each do |bucket|
+      bucket.each do |l|
+        yield [l.key, l.val]
+      end
+    end
   end
 
   # uncomment when you have Enumerable included
