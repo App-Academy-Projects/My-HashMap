@@ -28,6 +28,9 @@ class HashMap
   end
 
   def delete(key)
+    rem = bucket(key).remove(key)
+    self.count -= 1 if rem
+    rem
   end
 
   def each
