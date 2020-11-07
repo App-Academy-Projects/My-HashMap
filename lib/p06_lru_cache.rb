@@ -26,6 +26,8 @@ class LRUCache
   def to_s
     'Map: ' + @map.to_s + '\n' + 'Store: ' + @store.to_s
   end
+  
+  alias_method :inspect, :to_s
 
   private
 

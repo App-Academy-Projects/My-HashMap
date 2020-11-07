@@ -49,6 +49,7 @@ class HashMap
     "{\n" + pairs.join(",\n") + "\n}"
   end
 
+  alias_method :inspect, :to_s
   alias_method :[], :get
   alias_method :[]=, :set
 
