@@ -18,6 +18,7 @@ class LRUCache
       calc!(key)
     else
       node = @map[key]
+      update_node!(node)
       node.val
     end
   end
@@ -38,6 +39,8 @@ class LRUCache
 
   def update_node!(node)
     # suggested helper method; move a node to the end of the list
+    node.remove
+    @map[node.key] = @store.append(node.key, node.val)
   end
 
   def eject!
