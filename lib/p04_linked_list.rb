@@ -35,6 +35,7 @@ class LinkedList
   end
 
   def first
+    empty? ? nil : self.head.next
   end
 
   def last
