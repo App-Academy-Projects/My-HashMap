@@ -93,6 +93,11 @@ class LinkedList
   end
 
   def each
+    curr_node = self.head.next
+    until curr_node == self.tail
+      yield curr_node
+      curr_node = curr_node.next
+    end
   end
 
   # uncomment when you have `each` working and `Enumerable` included
