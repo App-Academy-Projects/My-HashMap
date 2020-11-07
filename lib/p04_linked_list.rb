@@ -61,6 +61,14 @@ class LinkedList
   end
 
   def append(key, val)
+    new_node = Node.new(key, val)
+
+    self.tail.prev.next = new_node
+    new_node.prev = self.tail.prev
+    new_node.next = self.tail
+    self.tail.prev = new_node
+
+    new_node
   end
 
   def update(key, val)
