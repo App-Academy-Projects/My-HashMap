@@ -30,9 +30,9 @@ class LRUCache
 
   def calc!(key)
     # suggested helper method; insert an (un-cached) key
-        val = @prc.call(key)
-        @store.append(key, val)
-        @map[key] = val
+    val = @prc.call(key)
+    @store.append(key, val)
+    @map[key] = val
   end
 
   def update_node!(node)
