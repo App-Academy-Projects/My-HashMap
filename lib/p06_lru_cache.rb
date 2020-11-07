@@ -34,6 +34,8 @@ class LRUCache
     val = @prc.call(key)
     new_node = @store.append(key, val)
     @map[key] = new_node
+    eject! if count > @max
+
     new_node.val
   end
 
@@ -44,5 +46,8 @@ class LRUCache
   end
 
   def eject!
+    rem_node = @store.first
+    rem_node.remove
+    @map.delete(rem_node.key)
   end
 end
